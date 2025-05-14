@@ -1,0 +1,78 @@
+/* Reset e Variáveis */
+:root {
+    --primary-color: #2F80ED; /* Azul do "CONTHABILIDADE" */
+    --text-dark: #333;
+    --text-light: #777;
+    --bg-color: #f5f5f5;
+    --card-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  body {
+    font-family: 'Arial', sans-serif;
+    background-color: var(--bg-color);
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+  }
+  
+  /* Container Principal */
+  .auth-container {
+    background: white;
+    border-radius: 10px;
+    box-shadow: var(--card-shadow);
+    width: 100%;
+    max-width: 400px;
+    padding: 2rem;
+    text-align: center;
+  }
+  
+  /* Logo/Título */
+  .auth-title {
+    color: var(--primary-color);
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+    font-weight: bold;
+  }
+  
+  /* Formulários */
+  .auth-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .auth-form input {
+    padding: 0.8rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1rem;
+  }
+  
+  .auth-form button {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 0.8rem;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.3s;
+  }
+  
+  .auth-form button:hover {
+    background-color: #1a6fd8;
+  }
+  
+  /* Links Adicionais */
+  .auth-link {
+    color: var(--text-light);
+    margin-top: 1rem;
+  }
+  
+  .auth-link a {
+    color: var(--primary-color);
+    text-decoration: none;
+  }
