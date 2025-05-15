@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'sobre',
     'signIn',
     'signUp',
+    'home',
 ]
 
 MIDDLEWARE = [
@@ -130,5 +131,8 @@ STATIC_URL = 'static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'base/static'),
+    os.path.join(BASE_DIR, 'base/global/static'),
 ]
+
+# Redirecionamento após login bem-sucedido
+LOGIN_REDIRECT_URL = 'home.html'  # Ex: 'home', 'pagina_inicial'

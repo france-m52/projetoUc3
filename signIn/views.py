@@ -1,17 +1,19 @@
-from django.shortcuts import render
-
-# Create your views here.
 from django.shortcuts import render, redirect
-from django.contrib.auth.forms import AuthenticationForm  # Formulário padrão de login
+from django.contrib.auth import authenticate, login
+from django.contrib.auth.forms import AuthenticationForm
 
-def signin_view(request):
+def signIn_view(request):
     if request.method == 'POST':
         form = AuthenticationForm(request, data=request.POST)
         if form.is_valid():
-            # Autentica o usuário
-            user = form.get_user()
-            login(request, user)
-            return redirect('home')  # Redireciona após login
+            username = form.cleaned_data.get('username')
+            password = form.cleaned_data.get('password')
+            user = authenticate(username=username, password=password)
+            if user is not None:
+                login(request, user)
+                return redirect('pagina_inicial')  # Altere para o nome da sua URL de destino
+        # Se o formulário for inválido ou a autenticação falhar
+        return render(request, 'signIn/signIn.html', {'form': form})
     else:
         form = AuthenticationForm()
-    return render(request, 'signin/signin.html', {'form': form})
+    return render(request, 'signIn/signIn.html', {'form': form})

@@ -1,3 +1,5 @@
 from django.shortcuts import render
 
-# Create your views here.
+def home_view(request):
+    """View básica para a página inicial"""
+    return render(request, 'home/home.html')  # Certifique-se que este template existe

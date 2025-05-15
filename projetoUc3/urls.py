@@ -17,8 +17,11 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from django.urls import path
-from signin.views import signin_view
-from signup.views import signup_view
+from signIn.views import signIn_view
+from signUp.views import signUp_view
+from home.views import home_view
+from django.conf import settings
+from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -27,6 +30,7 @@ urlpatterns = [
     path('gestao/', include('gestao.urls')),
     path('ensineme/', include('ensineme.urls')),
     path('sobre/', include('sobre.urls')),
-    path('signin/', signin_view, name='signin'),
-    path('signup/', signup_view, name='signup'),
-]
+    path('signin/', signIn_view, name='signin'),
+    path('signup/', signUp_view, name='signup'),
+    path('', home_view, name='home'),
+]  + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
