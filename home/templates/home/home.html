@@ -42,13 +42,14 @@
 
     <footer>
       <div class="footer-links">
-        <a href="#">Vendas</a>
+        <a href="{% url "home" %}">Vendas</a>
         <a href="#">Gestão</a>
         <a href="#">Ensine-me</a>
         <a href="#">Sobre nós</a>
+        <a href="{% url "signUp" %}">Crie sua conta</a>
+        <a href="{% url "signIn" %}">Entrar</a>
       </div>
       <p class="copyright">ContHabilidade LTDA.</p>
     </footer>
-  </div>
 </body>
 </html>

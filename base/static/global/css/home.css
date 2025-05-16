@@ -107,7 +107,7 @@ body {
   }
   
   .footer-links a {
-    color: white;
+    color: rgb(136, 9, 148);
     text-decoration: none;
     transition: color 0.3s;
   }

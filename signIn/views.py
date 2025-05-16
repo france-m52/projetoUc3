@@ -6,9 +6,9 @@ def signIn_view(request):
     if request.method == 'POST':
         form = AuthenticationForm(request, data=request.POST)
         if form.is_valid():
-            username = form.cleaned_data.get('username')
-            password = form.cleaned_data.get('password')
-            user = authenticate(username=username, password=password)
+            usuario = form.cleaned_data.get('username')
+            senha = form.cleaned_data.get('password')
+            user = authenticate(username=usuario, password=senha)
             if user is not None:
                 login(request, user)
                 return redirect('pagina_inicial')  # Altere para o nome da sua URL de destino

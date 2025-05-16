@@ -1,21 +1,12 @@
-{% extends "base/auth_base.html" %}  <!-- Herda de um template base -->
 
 {% block content %}
 <div class="auth-container">
   <h1 class="auth-title">CONTHABILIDADE</h1>
-  <form class="auth-form" action="{% url 'signin' %}" method="POST">
+  <form class="auth-form" action="{% url 'signIn' %}" method="POST">
     {% csrf_token %}  <!-- Token de segurança do Django -->
     {{ form.as_p }}   <!-- Renderiza o formulário do Django -->
-    <button type="submit">Sign In</button>
+    <button type="submit">Entrar</button>
   </form>
-  <p class="auth-link">Não tem conta? <a href="{% url 'signup' %}">Sign Up</a></p>
+  <p class="auth-link">Não tem conta? <a href="{% url 'signUp' %}">Sign Up</a></p>
 </div>
 {% endblock %}
-
-{% extends "base/auth_base.html" %}
-
-<form method="post">
-  {% csrf_token %}
-  {{ form.as_p }}
-  <button type="submit">Login</button>
-</form>

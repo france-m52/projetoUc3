@@ -8,15 +8,15 @@
 </head>
 <body>
   <div class="auth-container">
-    <h1 class="auth-title">CONTHABILIDADE</h1>
-    <form class="auth-form" action="#" method="POST">
-      <input type="email" placeholder="digital text (email)" required>
-      <input type="text" placeholder="pagina.asp.texas@studio" required>
-      <input type="password" placeholder="Password" required>
-      <button type="submit">Sign Up</button>
+    <h1 class="auth-title">CONTHABILIDADE</h1> 
+    <form class="auth-form" method="POST">
+      {% csrf_token %}
+      <input type="text" placeholder="Nome do usuario" name='nome' required>
+      <input type="email" placeholder="Email" name='email' required>
+      <input type="password" placeholder="Senha" name='senha' required>
+      <button type="submit">Criar conta</button>
     </form>
-    <p class="auth-link">Já tem conta? <a href="../signIn/templates/signIn.html">Sign In</a></p>
-    <p class="auth-link" style="margin-top: 0.5rem;">Contribution 1.0%</p>
+    <p class="auth-link">Já tem conta? <a href="{% url 'signIn' %}">Entrar</a></p>
   </div>
 </body>
 </html>

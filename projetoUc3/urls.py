@@ -16,21 +16,23 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from django.urls import path
 from signIn.views import signIn_view
 from signUp.views import signUp_view
-from home.views import home_view
 from django.conf import settings
 from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('', include('home.urls')),
     path('tributacao/', include('tributacao.urls')),
     path('vendas/', include('vendas.urls')),
     path('gestao/', include('gestao.urls')),
+    path('signIn/', include('signIn.urls')),
+    path('signUp/', include('signUp.urls')),
     path('ensineme/', include('ensineme.urls')),
     path('sobre/', include('sobre.urls')),
-    path('signin/', signIn_view, name='signin'),
-    path('signup/', signUp_view, name='signup'),
-    path('', home_view, name='home'),
 ]  + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+
+urlpatterns +=[
+    path('accounts/',include('django.contrib.auth.urls')),
+]
