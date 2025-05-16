@@ -12,6 +12,7 @@ def signUp_view(request):
 
         if User.objects.filter(username=nome).exists():
             messages.error(request, 'Nome de usuário já existe.')
+            return render(request, 'signUp/signUp.html')
         else:
             try:
                 User.objects.create_user(username=nome, email=email, password=senha)
@@ -19,14 +20,10 @@ def signUp_view(request):
                 return redirect('signIn')
             except ValidationError as e:
                 messages.error(request, f"Erro de validação: {e}")
-
+                return render(request, 'signUp/signUp.html')
             except Exception as e:
                 messages.error(request, f"Erro ao criar usuário: {e}")
-        return render(request, 'signUp/signUp.html')
-    #     if form.is_valid():
-    #         form.save()
-    #         username = form.cleaned_data.get('username')
-    #         messages.success(request, f'Conta criada para {username}!')
-    #         return redirect('signin')  # Redireciona para o login
-    # else:
-    #     form = UserCreationForm()
+                return render(request, 'signUp/signUp.html')  # <-- faltava esse return aqui
+
+    # Adiciona retorno para GET
+    return render(request, 'signUp/signUp.html')

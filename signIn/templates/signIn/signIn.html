@@ -1,5 +1,6 @@
-
 {% block content %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'global/css/style.css' %}">
 <div class="auth-container">
   <h1 class="auth-title">CONTHABILIDADE</h1>
   <form class="auth-form" action="{% url 'signIn' %}" method="POST">
@@ -7,6 +8,6 @@
     {{ form.as_p }}   <!-- Renderiza o formulário do Django -->
     <button type="submit">Entrar</button>
   </form>
-  <p class="auth-link">Não tem conta? <a href="{% url 'signUp' %}">Sign Up</a></p>
+  <p class="auth-link">Não tem conta? <a href="{% url 'signUp' %}">Criar conta</a></p>
 </div>
 {% endblock %}

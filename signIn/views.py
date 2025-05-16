@@ -11,7 +11,7 @@ def signIn_view(request):
             user = authenticate(username=usuario, password=senha)
             if user is not None:
                 login(request, user)
-                return redirect('pagina_inicial')  # Altere para o nome da sua URL de destino
+                return redirect('home')  # Altere para o nome da sua URL de destino
         # Se o formulário for inválido ou a autenticação falhar
         return render(request, 'signIn/signIn.html', {'form': form})
     else:

@@ -1,10 +1,11 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Sign Up - CONTHABILIDADE</title>
-  <link rel="stylesheet" href="../../base/static/global/css/style.css">
+  <link rel="stylesheet" href="{% static 'global/css/style.css' %}">
 </head>
 <body>
   <div class="auth-container">
@@ -20,3 +21,14 @@
   </div>
 </body>
 </html>
+<style>
+head{
+  font-family: 'Segoe UI', Arial, sans-serif;
+    line-height: 1.6;
+    color: var(--secondary-color);
+    margin: 0;
+    padding: 0;
+    background-color: var(--light-bg);
+}
+
+</style>

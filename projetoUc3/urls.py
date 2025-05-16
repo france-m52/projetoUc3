@@ -20,6 +20,7 @@ from signIn.views import signIn_view
 from signUp.views import signUp_view
 from django.conf import settings
 from django.conf.urls.static import static
+from django.urls import include, path
 
 urlpatterns = [
     path('admin/', admin.site.urls),
