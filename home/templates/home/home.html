@@ -10,14 +10,17 @@
 <body>
   <div class="container">
     <header>
-      <h1>ContHabilidade</h1>
+      <h1 class="centralizado">ContHabilidade</h1>
       <p class="tagline">Nesse site buscamos ajudar você aprendiz de contabilidade e gestor de negócio a traçar a melhor estratégia para sua empresa a partir de métricas de fácil acesso e contas descomplicadas com resultado escrito com dicas.</p>
 
     </header>
 
     <main>
       <section class="services">
-        <h2>Tributação</h2>
+        <div class="service-card">
+        <h3>Tributação</h3>
+        <p>Tudo do sobre tributação e impostos para você</p>
+        </div>
         
         <div class="service-card">
           <h3>Vendas</h3>
@@ -43,9 +46,10 @@
 
     <footer>
       <div class="footer-links">
-        <a href="{% url "home" %}">Vendas</a>
-        <a href="#">Gestão</a>
-        <a href="#">Ensine-me</a>
+        <a href="{% url "tributacao" %}">Tributação</a>
+        <a href="{% url "vendas" %}">Vendas</a>
+        <a href="{% url "gestao" %}">Gestão</a>
+        <a href="{% url "ensineme" %}">Ensine-me</a>
         <a href="{% url "sobre" %}">Sobre nós</a>
         <a href="{% url "signUp" %}">Crie sua conta</a>
         <a href="{% url "signIn" %}">Entrar</a>

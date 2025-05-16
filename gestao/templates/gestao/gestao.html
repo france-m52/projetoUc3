@@ -1,9 +1,138 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>gestao</title>
-</head>
-<body>
-    <h1>Página de gestao</h1>
-</body>
-</html>
+
+{% load static %}
+
+{% block content %}
+<link rel="stylesheet" href="{% static 'global/css/gestao.css' %}">
+
+<div class="gestao-container">
+  <h1>Gestão Empresarial</h1>
+  <p class="subtitle">Ferramentas para melhorar sua gestão financeira, de estoque e projetos</p>
+
+  <!-- Menu de Navegação -->
+  <div class="gestao-menu">
+    <button class="gestao-tab active" data-tab="financeira">Financeira</button>
+    <button class="gestao-tab" data-tab="estoque">Estoque</button>
+    <button class="gestao-tab" data-tab="projetos">Projetos</button>
+  </div>
+
+  <!-- Conteúdo Financeiro -->
+  <div id="financeira" class="gestao-content active">
+    <section class="calculator-card">
+      <h2>Lucro</h2>
+      <div class="input-group">
+        <label for="receita">Receita (R$):</label>
+        <input type="number" id="receita" step="0.01" placeholder="0,00">
+      </div>
+      <div class="input-group">
+        <label for="custos">Custos (R$):</label>
+        <input type="number" id="custos" step="0.01" placeholder="0,00">
+      </div>
+      <div class="result-group">
+        <h3>Lucro:</h3>
+        <div class="result-value" id="lucro">R$ 0,00</div>
+      </div>
+      <div class="result-group">
+        <h3>Margem de Lucro:</h3>
+        <div class="result-value" id="margem-lucro">0%</div>
+      </div>
+    </section>
+
+    <section class="calculator-card">
+      <h2>Ponto de Equilíbrio</h2>
+      <div class="input-group">
+        <label for="custos-fixos">Custos Fixos (R$):</label>
+        <input type="number" id="custos-fixos" step="0.01" placeholder="0,00">
+      </div>
+      <div class="input-group">
+        <label for="preco-venda">Preço de Venda (R$):</label>
+        <input type="number" id="preco-venda" step="0.01" placeholder="0,00">
+      </div>
+      <div class="input-group">
+        <label for="custo-variavel">Custo Variável Unitário (R$):</label>
+        <input type="number" id="custo-variavel" step="0.01" placeholder="0,00">
+      </div>
+      <div class="result-group">
+        <h3>Quantidade Mínima:</h3>
+        <div class="result-value" id="ponto-equilibrio">0</div>
+      </div>
+    </section>
+  </div>
+
+  <!-- Conteúdo de Estoque -->
+  <div id="estoque" class="gestao-content">
+    <section class="calculator-card">
+      <h2>Giro do Estoque</h2>
+      <div class="input-group">
+        <label for="custo-vendas">Custo das Mercadorias Vendidas (R$):</label>
+        <input type="number" id="custo-vendas" step="0.01" placeholder="0,00">
+      </div>
+      <div class="input-group">
+        <label for="estoque-medio">Estoque Médio (R$):</label>
+        <input type="number" id="estoque-medio" step="0.01" placeholder="0,00">
+      </div>
+      <div class="result-group">
+        <h3>Giro do Estoque:</h3>
+        <div class="result-value" id="giro-estoque">0</div>
+      </div>
+    </section>
+  </div>
+
+  <!-- Conteúdo de Projetos -->
+  <div id="projetos" class="gestao-content">
+    <section class="calculator-card">
+      <h2>Valor Agregado</h2>
+      <div class="input-group">
+        <label for="percent-concluido">% Concluído:</label>
+        <input type="number" id="percent-concluido" placeholder="0">
+      </div>
+      <div class="input-group">
+        <label for="orcamento-total">Orçamento Total (R$):</label>
+        <input type="number" id="orcamento-total" step="0.01" placeholder="0,00">
+      </div>
+      <div class="result-group">
+        <h3>Valor Agregado:</h3>
+        <div class="result-value" id="valor-agregado">R$ 0,00</div>
+      </div>
+    </section>
+
+    <section class="calculator-card">
+      <h2>Desvio de Prazo (SV)</h2>
+      <div class="input-group">
+        <label for="valor-agregado-sv">Valor Agregado (R$):</label>
+        <input type="number" id="valor-agregado-sv" step="0.01" placeholder="0,00">
+      </div>
+      <div class="input-group">
+        <label for="valor-planejado">Valor Planejado (R$):</label>
+        <input type="number" id="valor-planejado" step="0.01" placeholder="0,00">
+      </div>
+      <div class="result-group">
+        <h3>Resultado SV:</h3>
+        <div class="result-value" id="sv-resultado">R$ 0,00</div>
+        <p id="sv-interpretacao">SV = 0 Está exatamente no cronograma</p>
+      </div>
+    </section>
+
+    <section class="calculator-card">
+      <h2>Variação de Custo (CV)</h2>
+      <div class="input-group">
+        <label for="valor-agregado-cv">Valor Agregado (R$):</label>
+        <input type="number" id="valor-agregado-cv" step="0.01" placeholder="0,00">
+      </div>
+      <div class="input-group">
+        <label for="custo-real">Custo Real (R$):</label>
+        <input type="number" id="custo-real" step="0.01" placeholder="0,00">
+      </div>
+      <div class="result-group">
+        <h3>Variação de Custo:</h3>
+        <div class="result-value" id="cv-resultado">R$ 0,00</div>
+        <p id="cv-interpretacao">Resultado positivo: está economizando</p>
+      </div>
+    </section>
+  </div>
+
+  <!-- Botão de Voltar ao Topo -->
+  <button id="back-to-top" class="back-to-top">↑ Voltar ao topo</button>
+</div>
+
+<script src="{% static 'global/js/gestao.js' %}"></script>
+{% endblock %}

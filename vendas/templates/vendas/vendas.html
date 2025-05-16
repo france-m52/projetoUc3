@@ -1,9 +1,120 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Vendas</title>
-</head>
-<body>
-    <h1>Página de Vendas</h1>
-</body>
-</html>
+
+{% load static %}
+
+{% block content %}
+<link rel="stylesheet" href="{% static 'global/css/vendas.css' %}">
+
+<div class="vendas-container">
+  <h1>Painel de Vendas</h1>
+  <p class="subtitle">Ferramentas para análise e projeção de vendas</p>
+
+  <!-- Seção Receita Total -->
+  <section class="calculator-card">
+    <h2>Receita Total</h2>
+    <div class="input-group">
+      <label for="preco-venda">Preço de Venda (R$):</label>
+      <input type="number" id="preco-venda" step="0.01" placeholder="0,00">
+    </div>
+    <div class="input-group">
+      <label for="quantidade-vendida">Quantidade Vendida:</label>
+      <input type="number" id="quantidade-vendida" placeholder="0">
+    </div>
+    <div class="result-group">
+      <h3>Resultado:</h3>
+      <div class="result-value" id="receita-total">R$ 0,00</div>
+    </div>
+  </section>
+
+  <!-- Seção Ticket Médio -->
+  <section class="calculator-card">
+    <h2>Ticket Médio</h2>
+    <div class="input-group">
+      <label for="receita-total-tm">Receita Total (R$):</label>
+      <input type="number" id="receita-total-tm" step="0.01" placeholder="0,00">
+    </div>
+    <div class="input-group">
+      <label for="numero-vendas">Número de Vendas:</label>
+      <input type="number" id="numero-vendas" placeholder="0">
+    </div>
+    <div class="result-group">
+      <h3>Resultado:</h3>
+      <div class="result-value" id="ticket-medio">R$ 0,00</div>
+    </div>
+  </section>
+
+  <!-- Seção Margem de Lucro -->
+  <section class="calculator-card">
+    <h2>Margem de Lucro</h2>
+    <div class="input-group">
+      <label for="lucro">Lucro (R$):</label>
+      <input type="number" id="lucro" step="0.01" placeholder="0,00">
+    </div>
+    <div class="input-group">
+      <label for="preco-venda-ml">Preço de Venda (R$):</label>
+      <input type="number" id="preco-venda-ml" step="0.01" placeholder="0,00">
+    </div>
+    <div class="result-group">
+      <h3>Resultado:</h3>
+      <div class="result-value" id="margem-lucro">0%</div>
+    </div>
+  </section>
+
+  <!-- Seção Custo Fixo -->
+  <section class="calculator-card">
+    <h2>Custo Fixo (CF)</h2>
+    <p class="description">São os custos que não variam com a quantidade produzida/vendida.</p>
+    <div class="input-group">
+      <label for="custo-fixo">Valor Mensal (R$):</label>
+      <input type="number" id="custo-fixo" step="0.01" placeholder="0,00">
+    </div>
+  </section>
+
+  <!-- Seção Custo Variável -->
+  <section class="calculator-card">
+    <h2>Custo Variável (CV)</h2>
+    <div class="input-group">
+      <label for="custo-variavel-unit">Custo variável unitário (R$):</label>
+      <input type="number" id="custo-variavel-unit" step="0.01" placeholder="0,00">
+    </div>
+    <div class="input-group">
+      <label for="quantidade-produzida">Quantidade produzida/vendida:</label>
+      <input type="number" id="quantidade-produzida" placeholder="0">
+    </div>
+    <div class="result-group">
+      <h3>Resultado:</h3>
+      <div class="result-value" id="custo-variavel-total">R$ 0,00</div>
+    </div>
+  </section>
+
+  <!-- Seção Custo Total -->
+  <section class="calculator-card">
+    <h2>Custo Total (CT)</h2>
+    <div class="result-group">
+      <h3>Resultado:</h3>
+      <div class="result-value" id="custo-total">R$ 0,00</div>
+    </div>
+  </section>
+
+  <!-- Seção Preço de Venda -->
+  <section class="calculator-card">
+    <h2>Preço de Venda (PV)</h2>
+    <div class="input-group">
+      <label for="custo-total-pv">Custo Total (R$):</label>
+      <input type="number" id="custo-total-pv" step="0.01" placeholder="0,00">
+    </div>
+    <div class="input-group">
+      <label for="margem-desejada">Margem de lucro desejada (%):</label>
+      <input type="number" id="margem-desejada" placeholder="0">
+    </div>
+    <div class="result-group">
+      <h3>Resultado:</h3>
+      <div class="result-value" id="preco-venda-final">R$ 0,00</div>
+    </div>
+  </section>
+
+  <!-- Botão de Voltar ao Topo -->
+  <button id="back-to-top" class="back-to-top">↑ Voltar ao topo</button>
+</div>
+
+<script src="{% static 'global/js/vendas.js' %}"></script>
+{% endblock %}

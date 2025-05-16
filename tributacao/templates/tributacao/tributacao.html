@@ -1,0 +1,110 @@
+
+{% load static %}
+
+{% block content %}
+<link rel="stylesheet" href="{% static 'global/css/tributacao.css' %}">
+
+<div class="tributacao-container">
+  <h1>Calculadora de Tributação</h1>
+  <p class="subtitle">Selecione o regime tributário e calcule automaticamente os impostos</p>
+
+  <!-- Seletor de Regime Tributário -->
+  <div class="regime-selector">
+    <h2>Regime Tributário</h2>
+    <div class="regime-options">
+      <button class="regime-btn active" data-regime="simples">Simples Nacional</button>
+      <button class="regime-btn" data-regime="presumido">Lucro Presumido</button>
+      <button class="regime-btn" data-regime="real">Lucro Real</button>
+    </div>
+  </div>
+
+  <!-- Calculadora de ISS -->
+  <section class="calculator-section" id="iss-section">
+    <h2>ISS (Imposto Sobre Serviços)</h2>
+    <div class="calculator-form">
+      <div class="input-group">
+        <label for="iss-valor">Valor do Serviço prestado:</label>
+        <input type="number" id="iss-valor" placeholder="R$ 0,00" step="0.01">
+      </div>
+      <div class="input-group">
+        <label for="iss-aliquota">Alíquota do ISS (%):</label>
+        <input type="number" id="iss-aliquota" placeholder="5" value="5" step="0.1">
+      </div>
+      <div class="result-group">
+        <h3>Resultado:</h3>
+        <div class="result-value" id="iss-resultado">R$ 0,00</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Calculadora de ICMS -->
+  <section class="calculator-section" id="icms-section">
+    <h2>ICMS (Imposto sobre Circulação de Mercadorias)</h2>
+    <div class="calculator-form">
+      <div class="input-group">
+        <label for="icms-valor">Valor da Operação:</label>
+        <input type="number" id="icms-valor" placeholder="R$ 0,00" step="0.01">
+      </div>
+      <div class="input-group">
+        <label for="icms-aliquota">Alíquota do ICMS (%):</label>
+        <input type="number" id="icms-aliquota" placeholder="18" value="18" step="0.1">
+      </div>
+      <div class="result-group">
+        <h3>Resultado:</h3>
+        <div class="result-value" id="icms-resultado">R$ 0,00</div>
+      </div>
+      <div class="embutido-group">
+        <h4>ICMS embutido no preço:</h4>
+        <div class="result-value" id="icms-embutido">R$ 0,00</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Calculadora de IPI -->
+  <section class="calculator-section" id="ipi-section">
+    <h2>IPI (Imposto sobre Produtos Industrializados)</h2>
+    <div class="calculator-form">
+      <div class="input-group">
+        <label for="ipi-valor">Valor do produto:</label>
+        <input type="number" id="ipi-valor" placeholder="R$ 0,00" step="0.01">
+      </div>
+      <div class="input-group">
+        <label for="ipi-aliquota">Alíquota do IPI (%):</label>
+        <input type="number" id="ipi-aliquota" placeholder="10" value="10" step="0.1">
+      </div>
+      <div class="result-group">
+        <h3>Resultado:</h3>
+        <div class="result-value" id="ipi-resultado">R$ 0,00</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Calculadora de PIS/COFINS -->
+  <section class="calculator-section" id="pis-cofins-section">
+    <h2>PIS/COFINS</h2>
+    <div class="calculator-form">
+      <div class="input-group">
+        <label for="pis-receita">Receita Bruta:</label>
+        <input type="number" id="pis-receita" placeholder="R$ 0,00" step="0.01">
+      </div>
+      <div class="tabs">
+        <button class="tab-btn active" data-tab="cumulativo">Cumulativo</button>
+        <button class="tab-btn" data-tab="nao-cumulativo">Não Cumulativo</button>
+      </div>
+      <div class="result-group">
+        <h3>PIS:</h3>
+        <div class="result-value" id="pis-resultado">R$ 0,00</div>
+      </div>
+      <div class="result-group">
+        <h3>COFINS:</h3>
+        <div class="result-value" id="cofins-resultado">R$ 0,00</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Botão de Voltar ao Topo -->
+  <button id="back-to-top" class="back-to-top">↑ Voltar ao topo</button>
+</div>
+
+<script src="{% static 'global/js/tributacao.js' %}"></script>
+{% endblock %}

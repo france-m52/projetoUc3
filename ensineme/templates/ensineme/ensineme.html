@@ -1,9 +1,103 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>ensineme</title>
-</head>
-<body>
-    <h1>Página de ensineme</h1>
-</body>
-</html>
+
+{% load static %}
+
+{% block content %}
+<link rel="stylesheet" href="{% static 'global/css/ensineme.css' %}">
+
+<div class="ensineme-container">
+  <!-- Cabeçalho -->
+  <section class="ensineme-header">
+    <div class="profile-header">
+      <img src="{% static 'ensineme/img/profile.jpg' %}" alt="Foto do Perfil" class="profile-photo">
+      <h1 class="profile-name">Ensine-me</h1>
+    </div>
+    <p class="ensineme-description">
+      Nesse site buscamos ajudar você aprendiz de contabilidade e gestor de negócio a traçar a melhor estratégia 
+      para sua empresa a partir de métricas de fácil acesso e contas descomplicadas com resultado escrito com dicas.
+    </p>
+  </section>
+
+  <!-- Seção Balanço Patrimonial -->
+  <section class="balanco-section">
+    <h2>Balanço Patrimonial</h2>
+    <div class="balanco-content">
+      <div class="balanco-explanation">
+        <h3>O que é?</h3>
+        <p>O Balanço Patrimonial é a demonstração contábil que evidencia a situação econômico-financeira da empresa em determinado momento.</p>
+        
+        <h3>Estrutura Básica:</h3>
+        <div class="balanco-structure">
+          <div class="ativo">
+            <h4>Ativo</h4>
+            <ul>
+              <li>Circulante (caixa, bancos, estoques)</li>
+              <li>Não Circulante (imóveis, equipamentos)</li>
+            </ul>
+          </div>
+          <div class="passivo">
+            <h4>Passivo</h4>
+            <ul>
+              <li>Circulante (fornecedores, empréstimos)</li>
+              <li>Não Circulante (financiamentos longos)</li>
+              <li>Patrimônio Líquido (capital, lucros)</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="balanco-example">
+        <h3>Exemplo Prático:</h3>
+        <img src="{% static 'ensineme/img/balanco-exemplo.jpg' %}" alt="Exemplo de Balanço">
+      </div>
+    </div>
+  </section>
+
+  <!-- Seção DRE -->
+  <section class="dre-section">
+    <h2>DRE - Demonstração do Resultado do Exercício</h2>
+    <div class="dre-content">
+      <div class="dre-explanation">
+        <h3>Conceito:</h3>
+        <p>A DRE mostra o resultado líquido (lucro ou prejuízo) do exercício, através do confronto entre receitas, custos e despesas.</p>
+        
+        <h3>Estrutura Básica:</h3>
+        <ol class="dre-steps">
+          <li>Receita Bruta</li>
+          <li>(-) Deduções e Impostos</li>
+          <li>= Receita Líquida</li>
+          <li>(-) Custo das Vendas</li>
+          <li>= Lucro Bruto</li>
+          <li>(-) Despesas Operacionais</li>
+          <li>= Lucro Líquido</li>
+        </ol>
+      </div>
+      <div class="dre-example">
+        <h3>Modelo Simplificado:</h3>
+        <table class="dre-table">
+          <tr>
+            <th>Descrição</th>
+            <th>Valor (R$)</th>
+          </tr>
+          <tr>
+            <td>Receita Bruta</td>
+            <td>100.000,00</td>
+          </tr>
+          <tr>
+            <td>(-) Impostos</td>
+            <td>15.000,00</td>
+          </tr>
+          <tr>
+            <td><strong>Receita Líquida</strong></td>
+            <td><strong>85.000,00</strong></td>
+          </tr>
+          <!-- Continue a tabela... -->
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- Rodapé -->
+  <footer class="ensineme-footer">
+    <p>ContHabilidade © 2025 - Todos os direitos reservados</p>
+  </footer>
+</div>
+{% endblock %}
